@@ -1,0 +1,38 @@
+ <div class="topics" id="topics-section">
+          <div class="topics__header">
+            <h2>Browse Topics</h2>
+          </div>
+          <ul class="topics__list">
+            <li>
+              <a href="{% url 'home' %}" class="active">All <span>{{ topics.count }}</span></a>
+            </li>
+            
+        {% for topic in topics_preview %}
+            <li>
+                <a href="{% url 'home' %}?topic={{ topic.name }}">{{ topic.name }} <span>{{ topic.room_set.count }}</span></a>
+            </li>
+            {% endfor %}
+          </ul>
+
+          {# Hidden full topics list for mobile expansion (shown when "More" is tapped) #}
+          <ul class="topics__all" aria-hidden="true" style="display:none;">
+            {% for topic in topics|slice:"5:" %}
+            <li>
+              <a href="{% url 'home' %}?topic={{ topic.name }}">{{ topic.name }} <span>{{ topic.room_set.count }}</span></a>
+            </li>
+            {% endfor %}
+          </ul>
+
+          <a class="btn btn--link topics-more" href="{% url 'topics' %}">
+            <span class="topics-more-text">More</span>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+              <title>chevron-down</title>
+              <path d="M16 21l-13-13h-3l16 16 16-16h-3l-13 13z"></path>
+            </svg>
+          </a>
+        </div>
+
+        
+           
+            
+    

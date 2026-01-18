@@ -1,0 +1,53 @@
+{% extends "main.html" %}
+
+{% block content %}
+ <main class="create-room layout">
+   <div class="container"> 
+    <div class="layout__box">
+      <div class="layout__boxHeader">
+        <div class="layout__boxTitle">
+          <a href="{% url 'home' %}" class="layout__boxTitleLink">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+              <title>arrow-left</title>
+              <path 
+              d="M13.723 2.2861-13.723 2.2861 13.723 2.2861zM2.2861 8l11.437 0-11.437 0zM2.2861 13.713l11.437 0-11.437 0z"></path>
+            </svg>
+            </a>
+            <h3>Create/Update Study Room</h3>
+        </div>
+      </div>
+      <div class="layout__body">
+        <form class="form" action="" method="post">
+          {% csrf_token %}
+
+          <div class="form__group">
+            <label for="room_topic">Topic (select or type new)</label>
+            <input required id="room_topic" type="text" name="topic" list="topic-list" class="input" placeholder="e.g. Algebra" {% if room and room.topic %} value="{{ room.topic.name }}"{% endif %} />
+            <datalist id="topic-list">
+              {% for topic in topics %}
+                <option value="{{ topic.name }}">{{topic.name}}</option>
+              {% endfor %}
+            </datalist>
+          </div>
+        
+          <div class="form__group">
+            <label for="room-name">Room Name</label>
+            {{ form.name }}
+          </div>
+
+          <div class="form__group">
+            <label for="room-description">Description</label>
+            {{ form.description }}
+          </div>
+
+          <button type="submit" class="btn btn-primary">{% if room %}Update Room{% else %}Create Room{% endif %}</button>
+        </form>
+      </div>
+    </div>
+   </div> 
+  </main>
+{% endblock %}
+    
+
+
+
