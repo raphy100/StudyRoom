@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-elsfo&li)idr3ud3y$n4va8)p#d2)k@wma%$gqk@)v+w&sm0!a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1' , 'localhost', 'raphy.pythonanywhere.com']
 
 
 # Application definition
@@ -127,7 +127,6 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_ROOT = BASE_DIR / 'static/images'
-ALLOWED_HOSTS = ['raphy.pythonanywhere.com']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
