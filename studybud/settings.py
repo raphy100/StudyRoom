@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-elsfo&li)idr3ud3y$n4va8)p#d2)k@wma%$gqk@)v+w&sm0!a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1' , 'localhost', 'raphy.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
